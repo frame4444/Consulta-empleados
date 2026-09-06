@@ -1,7 +1,10 @@
 use axum::{Json, Router, extract::State, routing::get};
 use std::sync::Arc;
 use tokio::sync::Mutex;
-use tower_http::cors::{Any, CorsLayer};
+use tower_http::{
+    cors::{Any, CorsLayer},
+    services::ServeDir,
+};
 
 use crate::db::{self, DbClient};
 use crate::models::{Employee, InsertResult, NewEmployee};
@@ -16,9 +19,13 @@ pub fn create_router(db_client: DbClient) -> Router {
         .allow_methods(Any)
         .allow_headers(Any);
 
-    Router::new()
+    let api_routes = Router::new()
         .route("/employees", get(list_handler).post(insert_handler))
-        .with_state(state)
+        .with_state(state);
+
+    Router::new()
+        .merge(api_routes)
+        .fallback_service(ServeDir::new("static"))
         .layer(cors)
 }
 
