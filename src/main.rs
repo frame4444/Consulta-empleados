@@ -14,6 +14,7 @@ async fn main() {
         .expect("could not bind to port 3000");
 
     println!("Server running at http://localhost:3000");
+    println!("https://localhost:3000/index.html");
 
     axum::serve(listener, app).await.expect("server crashed");
 }
