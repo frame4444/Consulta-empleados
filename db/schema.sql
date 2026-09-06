@@ -1,6 +1,8 @@
 CREATE DATABASE EmpleadosDB;
-GO USE EmpleadosDB;
-GO CREATE TABLE dbo.Empleado(
+GO 
+USE EmpleadosDB;
+GO 
+CREATE TABLE dbo.Empleado(
   id INT IDENTITY(
     1,
     1

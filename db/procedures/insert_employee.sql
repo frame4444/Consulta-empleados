@@ -1,4 +1,4 @@
-CREATE PROCEDURE dbo.usp_InsertEmployee @NameVARCHAR(128),
+CREATE PROCEDURE dbo.usp_InsertEmployee @Name VARCHAR(128),
 @Salary MONEY AS BEGIN
 SET NOCOUNT
 ON ;
@@ -14,7 +14,7 @@ IF EXISTS(
   'Employee name already exists.' AS Message;
 RETURN;
 
-ENDINSERT INTO dbo.Empleado(
+END INSERT INTO dbo.Empleado(
   Nombre,
   Salario
 )
