@@ -1,11 +1,13 @@
 mod db;
 mod models;
+mod routes;
 
 use axum::{Router, routing::get};
 
 #[tokio::main]
 async fn main() {
-    //create new route
+    dotenvy::dotenv().ok();
+    let db_client = db::connect_db().await;
     let app = Router::new().route("/", get(saludo));
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")

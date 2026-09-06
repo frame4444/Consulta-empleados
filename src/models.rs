@@ -1,3 +1,5 @@
-pub mod empleado;
+pub mod employee;
 
-pub use empleado::Empleado;
+pub use employee::Employee;
+pub use employee::InsertResult;
+pub use employee::NewEmployee;
