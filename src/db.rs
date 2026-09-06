@@ -13,6 +13,7 @@ pub async fn connect_db() -> DbClient {
     let mut config = Config::new();
     config.host("localhost");
     config.port(1433);
+    config.database("EmpleadosDB");
     config.authentication(AuthMethod::sql_server("sa", &password));
     config.trust_cert();
 
