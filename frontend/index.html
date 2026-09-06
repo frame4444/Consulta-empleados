@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Empleados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Consulta de Empleados</h1>
+
+    <button id="btnCargar">Cargar empleados</button>
+
+    <table id="tablaEmpleados">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+    <p id="mensaje"></p>
+
+    <hr>
+
+    <h2>Agregar empleado</h2>
+    <form id="formEmpleado">
+      <input type="text" id="inputNombre" placeholder="Nombre" required>
+      <input type="number" id="inputSalario" placeholder="Salario" step="0.01" required>
+      <button type="submit">Agregar</button>
+    </form>
+    <p id="mensajeForm"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
